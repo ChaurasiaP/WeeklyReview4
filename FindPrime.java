@@ -32,11 +32,17 @@ public class FindPrime {
         System.out.println("prime array");
         primeNum = new int[k]; // array to store prime values
 
-        for (int i = 0; i < primeNum.length; i++) {
-            primeNum[i] = prime[i];
+        {
+            int i = 0;
+            while (i < primeNum.length) {
+                primeNum[i] = prime[i];
+                i++;
+            }
         }
-        for (int i = 0; i < primeNum.length; i++) {
+        int i = 0;
+        while (i < primeNum.length) {
             System.out.println(primeNum[i]);
+            i++;
         }
     }
 
