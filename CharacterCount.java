@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
 public class CharacterCount {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.next();
-        char[] a = s.toCharArray();
 
+    private static char[] a;
+
+    private static void countCharacters() {
         for (int i = 0; i < a.length; i++) {
             int count = 0;
             for (int j = 0; j < a.length; j++) {
@@ -20,5 +19,13 @@ public class CharacterCount {
                 System.out.println(a[i] + " " + count);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        a = s.toCharArray();
+
+        countCharacters();
     }
 }
