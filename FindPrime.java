@@ -2,18 +2,20 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class FindPrime {
-    public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        int size = sc.nextInt();
-        int[] a = new int[size];
-        int[] prime = new int[a.length];
-        int k = 0;
+    private static int size;
+    private static int k = 0;
+    private static final Scanner sc = new Scanner(System.in);
 
+    private static int[] a, prime, primeNum;
 
+    private static void getArray() {
         for (int i = 0; i < size; i++) {
             a[i] = sc.nextInt();
         }
+    }
+
+    private static void getPrimeArray() {
         for (int i = 0; i < size; i++) {
             int factor = 0;
             for (int j = 1; j < a[i] * a[i]; j++) {
@@ -28,7 +30,7 @@ public class FindPrime {
         } // array for getting prime numbers
 
         System.out.println("prime array");
-        int[] primeNum = new int[k]; // array to store prime values
+        primeNum = new int[k]; // array to store prime values
 
         for (int i = 0; i < primeNum.length; i++) {
             primeNum[i] = prime[i];
@@ -36,8 +38,9 @@ public class FindPrime {
         for (int i = 0; i < primeNum.length; i++) {
             System.out.println(primeNum[i]);
         }
-        System.out.println(" duplicate removed");
+    }
 
+    private static void sortedArrayWithUniqueValues() {
         Arrays.sort(primeNum);
         for (int i = 0; i < primeNum.length; i++) {
             int count = 0;
@@ -53,5 +56,20 @@ public class FindPrime {
                 System.out.println(primeNum[i]);
             }
         }
+    }
+
+    public static void main(String[] args) {
+
+        size = sc.nextInt();
+        a = new int[size];
+        prime = new int[a.length];
+        k = 0;
+        getArray();     // ARRAY INPUT
+
+        System.out.println("Prime Numbers from array");
+        getPrimeArray();        // ARRAY OF PRIME ELEMENTS FROM USER INPUT ARRAY
+
+        System.out.println(" duplicate removed");
+        sortedArrayWithUniqueValues();      // SORTED ARRAY WITHOUT ANY DUPLICATE VALUES
     }
 }
